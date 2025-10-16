@@ -1,0 +1,71 @@
+<!-- Overlay (faqat menyu ochilganda ko'rinadi) -->
+<div class="overlay" *ngIf="isMenuOpen" (click)="closeMenu()"></div>
+
+<!-- Sidebar -->
+<nav class="sidebar-container" [class.open]="isMenuOpen">
+  <!-- Burger -->
+  <div class="burger" [class.active]="isMenuOpen" (click)="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Sarlavha -->
+  <div class="sidebar-header">
+    <div class="logo-container">
+      <i class="pi pi-heart-fill logo-icon"></i>
+      <h2>MedPanel</h2>
+    </div>
+  </div>
+
+  <!-- Menyu bo'limlari -->
+  <ul class="sidebar-list">
+    <li>
+      <a routerLink="/home" routerLinkActive="active" (click)="closeMenu()">
+        <i class="pi pi-home icon"></i>
+        <span>Home</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/staff" routerLinkActive="active" (click)="closeMenu()">
+        <i class="pi pi-users icon"></i>
+        <span>Staff</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/patients" routerLinkActive="active" (click)="closeMenu()">
+        <i class="pi pi-user icon"></i>
+        <span>Patients</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/appointments" routerLinkActive="active" (click)="closeMenu()">
+        <i class="pi pi-calendar icon"></i>
+        <span>Appointments</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/reports" routerLinkActive="active" (click)="closeMenu()">
+        <i class="pi pi-chart-bar icon"></i>
+        <span>Reports</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/settings" routerLinkActive="active" (click)="closeMenu()">
+        <i class="pi pi-cog icon"></i>
+        <span>Settings</span>
+      </a>
+    </li>
+  </ul>
+
+  <!-- User profile section -->
+  <div class="user-profile">
+    <div class="user-avatar">
+      <i class="pi pi-user"></i>
+    </div>
+    <div class="user-info">
+      <span class="user-name">Dr. John Smith</span>
+      <span class="user-role">Administrator</span>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,18 @@
+<div class="staff-container-original">
+  <h2 class="staff-title-exclusive">Staff Directory</h2>
+  <table class="staff-table-special" *ngIf="staffMembers && staffMembers.length">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let staff of staffMembers">
+        <td>{{ staff.name }}</td>
+        <td>{{ staff.role }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="!staffMembers || !staffMembers.length">No staff members available.</p>
+</div>

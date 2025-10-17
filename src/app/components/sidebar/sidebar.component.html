@@ -1,4 +1,4 @@
-<!-- Overlay (faqat menyu ochilganda ko'rinadi) -->
+<!-- Overlay (visible when menu is open) -->
 <div class="overlay" *ngIf="isMenuOpen" (click)="closeMenu()"></div>
 
 <!-- Sidebar -->
@@ -10,7 +10,7 @@
     <span></span>
   </div>
 
-  <!-- Sarlavha -->
+  <!-- Header -->
   <div class="sidebar-header">
     <div class="logo-container">
       <i class="pi pi-heart-fill logo-icon"></i>
@@ -18,7 +18,7 @@
     </div>
   </div>
 
-  <!-- Menyu bo'limlari -->
+  <!-- Menu items -->
   <ul class="sidebar-list">
     <li>
       <a routerLink="/home" routerLinkActive="active" (click)="closeMenu()">

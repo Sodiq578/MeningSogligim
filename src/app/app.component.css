@@ -1,16 +1,51 @@
+/* app.component.css - o'ng chetga yopishgan versiya */
 .app-wrapper-special {
   display: flex;
   min-height: 100vh;
   background-color: #f4f6f9;
+  position: relative;
 }
 
 .app-main-unique {
-  flex: 1;
   padding: 20px;
+  margin-left: 280px;
+  transition: margin-left 0.3s ease;
+  min-height: 100vh;
+  box-sizing: border-box;
+  width: 700px; /* Aniq kichik kenglik */
+  margin-left: auto; /* O'ng tomonga surish */
+  margin-right: 50px; /* O'ng chetdan masofa */
 }
 
+/* Katta ekranlar uchun */
+@media (min-width: 1440px) {
+  .app-main-unique {
+    width: 1100px;
+    margin-right: 80px;
+  }
+}
+
+/* Tablet ko'rinish */
+@media (max-width: 1024px) {
+  .app-main-unique {
+    margin-left: 280px;
+    padding: 15px;
+    width: calc(100vw - 350px); /* Tabletda moslashuvchan */
+    margin-right: 30px;
+  }
+}
+
+/* Mobil ko'rinish */
 @media (max-width: 768px) {
   .app-wrapper-special {
     flex-direction: column;
+  }
+  
+  .app-main-unique {
+    margin-left: 0;
+    width: 100%;
+    padding: 15px;
+    min-height: auto;
+    margin-right: 0;
   }
 }

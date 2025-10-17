@@ -1,0 +1,59 @@
+<div class="reports-container">
+  <!-- Sarlavha -->
+  <h2 class="reports-title">
+    <i class="fas fa-file-alt"></i> Reports
+  </h2>
+
+  <!-- Filtr va qidiruv paneli -->
+  <div class="reports-controls">
+    <div class="search-wrapper">
+      <i class="fas fa-search search-icon"></i>
+      <input 
+        type="text" 
+        [(ngModel)]="searchQuery" 
+        (input)="filterReports()" 
+        placeholder="Search by report title..." 
+        class="search-input"
+      />
+    </div>
+    <select [(ngModel)]="filterType" (change)="filterReports()" class="filter-select">
+      <option value="">All Types</option>
+      <option value="PDF">PDF</option>
+      <option value="Excel">Excel</option>
+    </select>
+    <button class="add-btn" (click)="openAddReportModal()">
+      <i class="fas fa-plus"></i> Add Report
+    </button>
+  </div>
+
+  <!-- Hisobotlar ro'yxati -->
+  <div class="reports-list">
+    <div *ngFor="let report of filteredReports; let i = index" 
+         class="report-card animate__animated animate__fadeInUp" 
+         [ngStyle]="{'animation-delay': (i * 0.1) + 's'}">
+      <div class="report-header">
+        <span class="report-type-badge" [ngClass]="getTypeClass(report.type)">
+          {{ report.type }}
+        </span>
+      </div>
+      <div class="report-info">
+        <h3>{{ report.title }}</h3>
+        <p><i class="fas fa-calendar"></i> <strong>Date:</strong> {{ report.date | date: 'mediumDate' }}</p>
+        <p><i class="fas fa-file"></i> <strong>Type:</strong> {{ report.type }}</p>
+      </div>
+      <div class="report-actions">
+        <button class="view-btn" (click)="viewReport(i)">
+          <i class="fas fa-eye"></i> View
+        </button>
+        <button class="delete-btn" (click)="deleteReport(i)">
+          <i class="fas fa-trash"></i> Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bo'sh ro'yxat xabari -->
+  <div *ngIf="filteredReports.length === 0" class="no-reports animate__animated animate__fadeIn">
+    <p>No reports found. Try adjusting your search or filters.</p>
+  </div>
+</div>

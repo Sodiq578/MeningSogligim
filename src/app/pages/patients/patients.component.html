@@ -1,0 +1,75 @@
+<div class="patients-container">
+  <div class="header">
+    <h1>Patients List</h1>
+    <button class="add-btn" (click)="openModal()">Add Patient</button>
+  </div>
+
+  <table class="patients-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Condition</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let patient of patients">
+        <td>{{ patient.id }}</td>
+        <td>{{ patient.name }}</td>
+        <td>{{ patient.age }}</td>
+        <td>{{ patient.condition }}</td>
+        <td>
+          <button class="remove-btn" (click)="removePatient(patient.id)">Remove</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Modal for adding new patient -->
+  <div class="modal" *ngIf="showModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Add New Patient</h2>
+        <button class="close-btn" (click)="closeModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input 
+            type="text" 
+            id="name" 
+            [(ngModel)]="newPatient.name" 
+            placeholder="Enter patient name"
+            required
+          >
+        </div>
+        <div class="form-group">
+          <label for="age">Age:</label>
+          <input 
+            type="number" 
+            id="age" 
+            [(ngModel)]="newPatient.age" 
+            placeholder="Enter patient age"
+            required
+          >
+        </div>
+        <div class="form-group">
+          <label for="condition">Condition:</label>
+          <input 
+            type="text" 
+            id="condition" 
+            [(ngModel)]="newPatient.condition" 
+            placeholder="Enter patient condition"
+            required
+          >
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="cancel-btn" (click)="closeModal()">Cancel</button>
+        <button class="save-btn" (click)="addPatient()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

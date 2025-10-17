@@ -1,0 +1,12 @@
+<!-- src/app/pages/settings/settings.component.html -->
+<div class="settings-container">
+  <h2 class="settings-title">Settings</h2>
+  
+  <div class="settings-list">
+    <div *ngFor="let setting of settings" class="setting-card">
+      <h3>{{ setting.name }}</h3>
+      <p>{{ setting.description }}</p>
+      <button class="settings-btn">Configure</button>
+    </div>
+  </div>
+</div>
